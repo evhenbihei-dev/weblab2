@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна 4 - JS</title>
+    <style>
+        /* Базові стилі та змінні для світлої/темної теми */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --card-bg: #ffffff;
+        }
+        body.dark-mode {
+            --bg-color: #212529;
+            --text-color: #f8f9fa;
+            --card-bg: #343a40;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            transition: 0.3s;
+            padding: 20px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Стилі модального вікна */
+        .modal {
+            display: none; 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background-color: var(--card-bg);
+            padding: 20px; border-radius: 8px; width: 300px;
+        }
+        .modal-content input, .modal-content textarea {
+            width: 100%; margin-bottom: 10px; padding: 8px; box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="theme-toggle">Перемкнути тему</button>
+
+    <h2>Відгуки роботодавців</h2>
+    <div id="reviews-container">Завантаження...</div>
+
+    <!-- Модальне вікно -->
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <h3>Зворотний зв'язок</h3>
+            <!-- Заміни action на свій endpoint з Formspree -->
+            <form action="https://formspree.io/f/myeebgkz" method="POST">
+                <input type="text" name="name" placeholder="Ім'я" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Номер телефону">
+                <textarea name="message" placeholder="Ваше повідомлення" required></textarea>
+                <button type="submit">Надіслати</button>
+                <button type="button" id="close-modal">Закрити</button>
+            </form>
+        </div>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid gray;">
+        <h4>Системна інформація:</h4>
+        <p id="system-info"></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

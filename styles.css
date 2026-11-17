@@ -1,0 +1,122 @@
+/* --- 1. Явне керування Box Model --- */
+* {
+    box-sizing: border-box; /* Розміри блоку включають border та padding */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- 2. Селектор тегу --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- 3. Селектор атрибута --- */
+h1[data-name="yevhen"] {
+    color: #2980b9;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Стилізація навігації */
+.main-nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #34495e;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* --- 4. Псевдокласи (:hover, :focus) --- */
+.main-nav a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.main-nav a:focus {
+    outline: 3px dashed #e74c3c;
+    background-color: #ecf0f1;
+}
+
+/* --- 5. Макет на основі CSS Grid --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Дві колонки однакової ширини */
+    gap: 20px; /* Відступи між колонками */
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto; /* Центрування на сторінці */
+}
+
+/* --- 6. Селектор класу та Box Model --- */
+.card {
+    background-color: white;
+    padding: 25px; /* Box Model: внутрішні відступи */
+    border: 1px solid #dcdde1; /* Box Model: рамка */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.card li {
+    margin-bottom: 10px;
+}
+
+/* --- 7. Селектор ID --- */
+#experience {
+    border-left: 6px solid #2ecc71; /* Виділяємо блок досвіду кольоровою лінією */
+}
+
+/* Робимо секцію досвіду на всю ширину (займає 2 колонки з 2 доступних) */
+.full-width {
+    grid-column: span 2;
+}
+
+/* Стилізація підвалу */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 20px;
+}
+
+.site-footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+    color: #e74c3c;
+}
+
+/* --- 8. Медіазапит (Адаптивність для вузьких екранів) --- */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Зміна макету на 1 колонку замість 2 */
+    }
+    
+    .full-width {
+        grid-column: span 1; /* Скасовуємо розтягування на 2 колонки */
+    }
+    
+    .main-nav ul {
+        flex-direction: column; /* Вертикальне меню на телефонах */
+        gap: 10px;
+    }
+}
